@@ -1,0 +1,227 @@
+<div class="container">
+    <nav class="navbar navbar-default" method="post">
+        <form method="post" #formQuestion="ngForm">
+            <div class="container-fluid">
+                <br>
+                <div class="form-group">
+                    <label for="formEmail">E-mail</label>
+                    <input 
+                        type="email" 
+                        class="form-control" 
+                        id="email" 
+                        name="email"
+                        [(ngModel)]="question.email"
+                        #email="ngModel"
+                        placeholder="name@example.com"
+                        required
+                        email>
+                        <div *ngIf="email.errors && (email.dirty || email.touched)"
+                        class="alert alert-danger">
+                            <div [hidden]="!email.errors.required">E-mail can't be null</div>
+                            <div [hidden]="!email.errors.minlength">Invalid e-mail</div>
+                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="formName">Name</label>
+                    <input 
+                        type="text"    
+                        class="form-control" 
+                        id="name" 
+                        name="name" 
+                        [(ngModel)]="question.name"
+                        #name="ngModel"
+                        placeholder="name"
+                        minlength="5"
+                        required>
+                        <div *ngIf="name.errors && (name.dirty || name.touched)"
+                        class="alert alert-danger">
+                            <div [hidden]="!name.errors.required">Name can't be null</div>
+                            <div [hidden]="!name.errors.minlength">Invalid name</div>
+                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="formName">Phone</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="phphoneInformationone" 
+                        name="phoneInformation"
+                        [(ngModel)]="question.phoneInformation"
+                        #phoneInformation="ngModel"
+                        placeholder="+55 11 88888-8888">
+                </div>
+                <h3 align="center">Mark your symptoms</h3>
+                <div class="form-group">
+                    <label for="formDiarrhea">Diarrhea:
+                    <div class="form-check">
+                        <input 
+                            class="form-check-input" 
+                            type="radio" 
+                            name="diarrheaStatus" 
+                            id="diarrheaT" 
+                            [(ngModel)]="question.diarrheaStatus"
+                            #diarrheaStatus="ngModel"
+                            value="true" >
+                        <label class="form-check-label" for="diarrheaT">
+                        Yes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input 
+                            class="form-check-input" 
+                            type="radio" 
+                            name="diarrheaStatus" 
+                            id="diarrheaF" 
+                            [(ngModel)]="question.diarrheaStatus"
+                            #diarrheaStatus="ngModel"
+                            value="false" 
+                            checked>
+                        <label class="form-check-label" for="diarrheaF">
+                        No
+                        </label>
+                    </div>
+                    </label>
+                </div>
+    
+                <div class="form-group">
+                    <label for="formNasal">Nasal Congestion:
+                    <div class="form-check">
+                        <input 
+                            class="form-check-input" 
+                            type="radio" 
+                            name="nasal" 
+                            id="nasalT"
+                            [(ngModel)]="question.nasalCongestionStatus"
+                            #nasalCongestionStatus="ngModel"
+                            value="true" >
+                        <label class="form-check-label" for="nasalT">
+                        Yes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input 
+                            class="form-check-input" 
+                            type="radio" 
+                            checked
+                            name="nasal" 
+                            id="nasalF" 
+                            [(ngModel)]="question.nasalCongestionStatus"
+                            #nasalCongestionStatus="ngModel"
+                            value="false" 
+                            >
+                        <label class="form-check-label" for="nasalF">
+                        No
+                        </label>
+                    </div>
+                    </label>
+                </div>
+            
+                <div class="form-group">
+                    <label for="formPain">Pain:
+                    <div class="form-check">
+                        <input 
+                            class="form-check-input" 
+                            type="radio" 
+                            name="pain" 
+                            id="painT" 
+                            [(ngModel)]="question.painStatus"
+                            #painStatus="ngModel"
+                            value="true" >
+                        <label class="form-check-label" for="painT">
+                         Yes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input 
+                            class="form-check-input" 
+                            type="radio" 
+                            name="pain" 
+                            id="painF" 
+                            value="false" 
+                            [(ngModel)]="question.painStatus"
+                            #painStatus="ngModel"
+                            checked>
+                        <label class="form-check-label" for="painF">
+                        No
+                        </label>
+                    </div>
+                    </label>
+                </div>
+              
+
+                <div class="form-group">
+                    <label for="formPain">Runny Nose:
+                    <div class="form-check">
+                        <input 
+                            class="form-check-input" 
+                            type="radio" 
+                            name="runnyNose"
+                            id="runnyNoseT" 
+                            [(ngModel)]="question.runnyNoseStatus"
+                            #runnyNoseStatus="ngModel"
+                            value="true" >
+                        <label class="form-check-label" for="runnyNoseT">
+                        Yes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input 
+                            class="form-check-input" 
+                            type="radio" 
+                            name="runnyNose" 
+                            id="runnyNoseF" 
+                            value="false"
+                            [(ngModel)]="question.runnyNoseStatus"
+                            #runnyNoseStatus="ngModel" 
+                            checked>
+                        <label class="form-check-label" for="runnyNoseF">
+                        No
+                        </label>
+                    </div>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="formPain">Sore Throat:
+                    <div class="form-check">
+                        <input 
+                            class="form-check-input" 
+                            type="radio" 
+                            name="soreThroat" 
+                            id="soreThroatT" 
+                            [(ngModel)]="question.soreThroatStatus"
+                            #soreThroatStatus="ngModel"
+                            value="true" >
+                        <label class="form-check-label" for="soreThroatT">
+                        Yes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input 
+                            class="form-check-input" 
+                            type="radio" 
+                            name="soreThroat" 
+                            id="soreThroatF" 
+                            [(ngModel)]="question.soreThroatStatus"
+                            #soreThroatStatus="ngModel"
+                            value="false" 
+                            checked>
+                        <label class="form-check-label" for="soreThroatF">
+                        No
+                        </label>
+                    </div>
+                    </label>
+                </div>
+                <div class="form-group" align="center">
+                    <input 
+                        type="submit" 
+                        class="btn btn-primary btn-lg" 
+                        value="Submit"
+                        (click)="cadastrar(question)"
+                        [disabled]="!formQuestion.form.valid">
+                </div>
+            </div>
+        </form>
+    </nav>
+</div>
+
